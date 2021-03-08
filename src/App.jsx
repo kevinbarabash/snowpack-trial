@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import LoadableHello from "./loadable-hello.jsx";
+import {ClsHello, FnHello} from "./hello.jsx";
+
 function App() {
   // Create the count state.
   const [count, setCount] = useState(0);
@@ -31,6 +34,9 @@ function App() {
             Learn React
           </a>
         </p>
+        <ClsHello/>
+        <FnHello/>
+        <LoadableHello />
       </header>
     </div>
   );
