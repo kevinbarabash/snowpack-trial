@@ -2,7 +2,8 @@ import * as React from "react";
 
 const {useState} = React;
 
-class ClsHello extends React.Component {
+// Class components don't work with fast refresh.
+class Hello extends React.Component {
     state = {
         count: 0
     };
@@ -13,16 +14,23 @@ class ClsHello extends React.Component {
 
     render() {
         return <h1 onClick={this.handleClick}>
-            Hello, world times {this.state.count}
+            Hello, world x {this.state.count}
         </h1>;
     }
+}
+
+// Wrapping a class component within a functional component will result
+// in the wrapped component being remounted, but at least it's remounting
+// now.
+const ClsHello = () => {
+    return <Hello />;
 }
 
 const FnHello = () => {
     const [count, setCount] = useState(0);
 
     return <h1 onClick={() => setCount(count + 1)}>
-        Hello, world x {count}
+        Hello, world times {count}
     </h1>;
 }
 
